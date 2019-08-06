@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import Items from '../components/Items'
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
-            </div>
-        );
-    }
-}
+const Home = props => (
+    <div>
+        <Items />
+    </div>
+)
+
 
 export default Home;
