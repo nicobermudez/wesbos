@@ -1,8 +1,9 @@
 const Query = {
-    users(parent, args, ctx, info) {
-        return [{ name: 'Nico'}, {name: 'Diana'}, {name: 'Carlos'}, {name: 'Cata'}]
+    async items(parent, args, ctx, info) {
+        console.log(args)
+        const items = await ctx.db.query.items();
+        return items
     }
-
 };
 
 module.exports = Query;
