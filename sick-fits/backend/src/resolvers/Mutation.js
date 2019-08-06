@@ -1,3 +1,8 @@
-const mutations = {};
+const Mutation = {
+    createUser(parent, args, ctx, info) {
+        // create User
+        console.log(args)
+    }
+};
 
-module.exports = mutations;
+module.exports = Mutation;
