@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Item = styled.div`
   background: white;
   border: 1px solid ${props => props.theme.offWhite};
-  box-shadow: ${props => props.theme.bs};
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ const Item = styled.div`
   .buttonList {
     display: grid;
     width: 100%;
-    border-top: 1px solid ${props => props.theme.lightgrey};
+    border-top: 1px solid lightgrey;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
     background: ${props => props.theme.lightgrey};
@@ -32,6 +32,7 @@ const Item = styled.div`
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+      border: 1px solid lightgrey;
     }
   }
 `;
