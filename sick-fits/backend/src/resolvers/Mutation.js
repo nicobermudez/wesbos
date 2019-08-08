@@ -26,7 +26,6 @@ const Mutations = {
       info
     );
 
-    console.log(item);
 
     return item;
   },
@@ -242,7 +241,25 @@ const Mutations = {
         }
       }
     })
-  }
+  },
+  async removeFromCart(parent, args, ctx, info) {
+    // find cart item
+
+
+    const cartItem = await ctx.db.query.cartItem({
+      where: {
+        id: args.id,
+      }
+    }, `{id, user { id }}`)
+
+    if(!cartItem) throw new Error('No Cart Item Found');
+    // make sure they own the item
+    if(cartItem.user.id !== ctx.request.userId) throw new Error("User not allowed to make changes")
+    // delete item if all checks out
+    return ctx.db.mutation.deleteCartItem({
+      where: { id: args.id }
+    }, info)
+  },
 };
 
 module.exports = Mutations;
